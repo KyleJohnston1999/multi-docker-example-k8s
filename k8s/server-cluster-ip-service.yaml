@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: server # knows which Deployment/Pods to target
+  ports:
+    - port: 5000  # access port of object in cluster
+      targetPort: 5000  # access port of Deployment object (component: web)
